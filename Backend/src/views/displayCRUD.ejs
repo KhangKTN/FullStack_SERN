@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Get CRUD</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <!-- Brand/logo -->
+        <a class="navbar-brand" href="#">Logo</a>
+        
+        <!-- Links -->
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/get-crud">User</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link 2</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link 3</a>
+          </li>
+        </ul>
+      </nav>
+    <h1 class="text-uppercase text-center my-5 display-4">User Table</h1>
+    <div class="container">
+        <form class="form-inline mb-3" action="/get-crud" method="get">
+            <input class="form-control col-2" name="search" type="text" placeholder="Search..." required>
+            <button class="btn btn-primary mx-2" type="submit">Search</button>
+        </form>
+        <table class="table table-dark table-striped table-hover">
+            <thead class="bg-info ">
+                <tr>
+                    <th>Email</th>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Address</th>
+                    <th>Gender</th>
+                    <th>Phone Number</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%for(let i = 0; i < dataTable.length; i++){%>
+                    <tr>
+                        <td><%= dataTable[i].email%></td>
+                        <td><%= dataTable[i].firstName%></td>
+                        <td><%= dataTable[i].lastName%></td>
+                        <td><%= dataTable[i].address%></td>
+                        <td><%= dataTable[i].gender == '1' ? 'Male' : 'Female'%></td>
+                        <td><%= dataTable[i].phoneNumber%></td>
+                        <td>
+                            <a href="/edit-crud?id=<%= dataTable[i].id%>"><button class="btn btn-warning" type="submit">Edit</button></a>
+                            <a href="/delete-crud?id=<%= dataTable[i].id%>"><button class="btn btn-danger" type="submit">Delete</button></a>
+                        </td>
+                    </tr>
+                <%}%>
+            </tbody>
+        </table>
+        <div align="right">
+            <a href="/crud"><button align="right" type="submit" class="btn btn-primary">Create New Users</button></a>
+        </div>
+    </div>
+</body>
+</html>

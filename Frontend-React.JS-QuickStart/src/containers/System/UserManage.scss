@@ -1,0 +1,82 @@
+#user-manager, .users-container{
+    margin-bottom: 100px;
+    .styled-table {
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 1.5em;
+        font-family: sans-serif;
+        width: 100%;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        border-radius: 10px;
+        overflow: hidden;
+
+        thead tr {
+            background-image: linear-gradient(to right, #4ea6f3 0%, #0e6fc3 100%);
+            color: #ffffff;
+            text-align: left;
+        }
+
+        th, td {
+            padding: 12px 15px;
+        }
+
+        tbody tr {
+            border-bottom: 1px solid #dddddd;
+            font-size: 1em;
+        }
+        
+        tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        tbody tr:last-of-type {
+            border-bottom: 2px solid #4facfe;
+        }
+
+        tbody tr:hover {
+            background-color: #c9e4fb;
+        }
+
+    }
+
+    .button{
+        font-size: .8em;
+        margin-left: 8px;
+        background: linear-gradient(to right, #a860df 0%, #7e5cee 100%);
+        padding: 10px 20px;
+        text-align: center;
+        display: inline-block;
+        border: none;
+        border-radius: 5px;
+        color: whitesmoke;
+
+        &:hover{
+            color: rgb(29, 212, 199);
+            background: linear-gradient(to left, #a860df 0%, #7e5cee 100%);
+        }
+    }
+
+    .add{
+        text-align: right;
+    }
+
+    .button-add{
+        font-size: 1.5em;
+        margin-left: 8px;
+        background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+        // padding: 15px 30px;
+        padding: 10px 20px;
+        text-align: center;
+        display: inline-block;
+        border: none;
+        border-radius: 5px;
+
+        &:hover{
+            background: linear-gradient(to top, #00f2fe 0%, #4facfe);
+            color: rgb(236, 38, 150);
+            text-align: right;
+        }
+    }
+}

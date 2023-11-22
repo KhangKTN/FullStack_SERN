@@ -1,0 +1,75 @@
+.login-background{
+    background: linear-gradient(to bottom right, #a398f9, #513fdc);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .login-container{
+        border-radius: 20px;
+        width: 400px;
+        padding: 40px;
+        background-color: rgba(255, 255, 255, 0.3);
+
+        .login-content{
+            input{
+                margin: 10px 0;
+                border: none;
+                background-color: rgba(255, 255, 255, 0.8);
+            }
+
+            label{
+                font-size: 16px;
+            }
+
+            button{
+                height: 40px;
+                background-color: #513fdc;
+            }
+
+            .input-password{
+                position: relative;
+                .fas{
+                    position: absolute;
+                    top: 8px;
+                    right: 8px;
+                    cursor: pointer;
+                }
+            }
+
+            .fab{
+                font-size: 30px;
+                color: white;
+                height: 50px;
+                width: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50px;
+            }
+
+            .fa-google{
+                background-color: red;
+                padding: 5px;
+            }
+
+            .fa-facebook{
+                background-color: rgb(36, 76, 235);
+                padding: 5px;
+                margin-left: 5px;
+            }
+
+            
+        }
+    }
+
+    @media (max-width: 480px) {
+        .login-container {
+          width: 100%;
+          max-width: 400px;
+        }
+    }
+}
+
+
+
