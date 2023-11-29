@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
 import { LANGUAGES } from '../../utils';
 import { changeLanguageApp } from '../../store/actions/appActions';
+import { withRouter } from 'react-router';
+
 import './HomeHeader.scss';
 
 
@@ -13,7 +15,7 @@ class HomeHeader extends Component {
     }
 
     render() {
-        console.log('check userInfo:', this.props.userInfo);
+        console.log('...check props:', this.props);
         let language = this.props.language;
         return (
             <React.Fragment>
@@ -21,7 +23,7 @@ class HomeHeader extends Component {
                 <div className='home-header-content'>
                     <div className='left-content'>
                         <i className="fas fa-bars"></i>
-                        <div className='header-logo'></div>
+                        <div className='header-logo' onClick={() => this.props.history.push('/home')}></div>
                     </div>
                     <div className='center-content'>
                         <div className='child-content'>
@@ -52,11 +54,11 @@ class HomeHeader extends Component {
                         
                         <div className='flag'>
                             <div onClick={() => this.changeLanguage(LANGUAGES.VI)} className={language === LANGUAGES.VI ? 'language-vi active' : 'language-vi'}>
-                                <img className='icon-vn'></img>
+                                <div className='icon-vn'></div>
                                 <span>VI</span>
                             </div>
                             <div onClick={() => this.changeLanguage(LANGUAGES.EN)} className={language === LANGUAGES.EN ? 'language-en active' : 'language-en'}>
-                                <img className='icon-en'></img>
+                                <div className='icon-en'></div>
                                 <span>EN</span>
                             </div>
                         </div>
@@ -64,6 +66,7 @@ class HomeHeader extends Component {
                     </div>
                 </div>
                 </div>
+                {this.props.isShowBanner && 
                 <div className='home-header-banner'>
                     <div className='content-up'>
                         <div className='title1'><FormattedMessage id="banner.title1"/> <br/><FormattedMessage id="banner.title2"/></div>
@@ -105,6 +108,7 @@ class HomeHeader extends Component {
                         </div>
                     </div>
                 </div>
+                }
             </React.Fragment>
         );
     }
@@ -125,4 +129,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeHeader);
+export default withRouter (connect(mapStateToProps, mapDispatchToProps)(HomeHeader));

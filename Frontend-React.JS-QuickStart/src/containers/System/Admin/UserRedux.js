@@ -80,7 +80,6 @@ class UserRedux extends Component {
             })
         }
         if(prevProps.listUsers !== this.props.listUsers){
-            console.log(1);
             let arrGenders = this.props.genderRedux;
             let arrPositions = this.props.positionRedux;
             let arrRoles = this.props.roleRedux;
@@ -125,7 +124,6 @@ class UserRedux extends Component {
     }
 
     handleSaveUser = () => {
-        // console.log('submit check state: ', this.state);
         let {action} = this.state;
         let check = this.checkValidateInput();
         if(check && action === CRUD_ACTIONS.CREATE){
@@ -143,7 +141,6 @@ class UserRedux extends Component {
             })
             this.setState({
                 ...this.state,
-                // isUserCreated: false
             })
             setTimeout(() => {
                 this.props.fetchUserRedux()
@@ -207,7 +204,6 @@ class UserRedux extends Component {
             previewImgUrl: imageBase64,
             action: CRUD_ACTIONS.EDIT
         }, () => {console.log('Check handle edit user from state:', this.state);})
-        // console.log('Check data image blob:', user.image.data);
     }
 
     render() {

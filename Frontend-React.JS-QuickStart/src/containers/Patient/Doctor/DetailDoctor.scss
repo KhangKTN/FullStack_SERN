@@ -1,0 +1,69 @@
+.doctor-detail-container{
+    margin: 25px 50px;
+    border-radius: 10px;
+    background-color: #ecf5f4;
+    overflow: hidden;
+
+    .intro-doctor{
+        background-image: linear-gradient(to bottom left, #e9b7ce, #d3f3f1);
+        display: flex;
+        padding: 20px;
+
+        .content-left{
+            width: 20%;
+            .img{
+                margin: auto;
+                width: 150px;
+                height: 150px;
+                background-size: cover;
+                background-repeat: no-repeat;
+                border-radius: 100%;
+            }
+        }
+        .content-right{
+            margin-left: 20px;
+            width: 80%;
+            // border: 1px dashed sandybrown;
+            padding: 5px 10px;
+
+            .doctor-name{
+                font-size: 25px;
+            }
+            .info-doctor{
+                margin-top: 10px;
+                font-size: 1.2rem;
+                textarea{
+                    width: 100%;
+                    height: 100px;
+                    outline: none;
+                    border: none;
+                    background-color: inherit;
+                    // overflow: visible;
+                    resize: none;
+                }
+            }
+        }
+    }
+
+
+
+    .schedule-doctor{
+        padding: 25px 20px;
+        border-bottom: 1px solid palevioletred;
+        background-color: rgb(242, 235, 238);
+    }
+
+    .detail-info{
+        margin-top: 30px;
+        padding: 0 20px;
+        h2{
+            font-size: 1.5rem;
+        }
+    }
+
+    .comment-doctor{
+        padding: 25px 20px;
+        border-top: 1px solid palevioletred;
+        background-color: rgb(242, 235, 238);
+    }
+}
