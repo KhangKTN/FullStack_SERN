@@ -215,14 +215,14 @@ class UserRedux extends Component {
         let {email, password, firstName, lastName, phoneNumber, address, gender, position, role, avatar} = this.state;
         return (
             <div className='user-redux-container'>
-                <div className='title'>
-                    <div className="text-center" >User Redux</div>
+                <div className=''>
+                    <div className="title text-center" ><FormattedMessage id='manage-user.add'/></div>
                 </div>
                 <div>{isLoadingGender === true ? 'Loading Gender' : ''}</div>
                 <div className='user-redux-body'>
                     <div className='mx-5 px-5 mt-5'>
                         <div className='row g-4 col-9 mx-auto'>
-                            <div className='col-12 my-4 display-5 text-center'><FormattedMessage id='manage-user.add'/></div>
+                            {/* <div className='col-12 my-4 display-5 text-center'><FormattedMessage id='manage-user.add'/></div> */}
                             <div className='col-6 col-md-3 form-group'>
                                 <label className="form-label"><FormattedMessage id='manage-user.email'/></label>
                                 <input disabled={this.state.action === CRUD_ACTIONS.EDIT ? true : false} className='form-control' type='email' value={email} onChange={(event) => this.onChangeInput(event, 'email')}/>
@@ -300,7 +300,7 @@ class UserRedux extends Component {
                             </div>
                         </div>
                         <div className='col-2 mx-auto mt-3'>
-                            <button onClick={() => this.handleSaveUser()} className={this.state.action === CRUD_ACTIONS.EDIT ? 'btn col-12 btn-warning btn-lg' : 'btn col-12 btn-primary btn-lg'} type="submit">
+                            <button onClick={() => this.handleSaveUser()} className={this.state.action === CRUD_ACTIONS.EDIT ? 'btn col-12 btn-warning btn-lg' : 'btn-save btn col-12'} type="submit">
                                 {this.state.action === CRUD_ACTIONS.EDIT ? <FormattedMessage id='manage-user.edit'/> : <FormattedMessage id='manage-user.save'/>}
                             </button>
                         </div>

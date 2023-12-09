@@ -56,6 +56,19 @@ let getDetailDoctorById = async(req, res) => {
     }
 }
 
+let createSchedule = async(req, res) => {
+    try {
+        let info = await doctorService.createSchedule(req.body);
+        return res.status(200).json(info);
+    } catch (error) {
+        console.log(error);
+        return res.status(200).json({
+            errCode: -1,
+            errMessage: 'Error from the server'
+        })
+    }
+}
+
 module.exports = {
-    getTopDoctorHome, getAllDoctors, saveInfoDoctor, getDetailDoctorById
+    getTopDoctorHome, getAllDoctors, saveInfoDoctor, getDetailDoctorById, createSchedule
 }

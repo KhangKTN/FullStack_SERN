@@ -1,5 +1,8 @@
 import { where } from "sequelize";
 import db from "../models/index";
+import _ from 'lodash'
+require('dotenv').config();
+const MAX_NUMBER_SCHEDULE = 10;
 
 let getTopDoctorHome = (limitInput) => {
     return new Promise(async(resolve, reject) => {
@@ -129,6 +132,43 @@ let getDetailDoctorById = (id) => {
     })
 }
 
+let createSchedule = (data) => {
+    return new Promise(async(resolve, reject) => {
+        try{
+            if(!data){
+                resolve({
+                    errCode: 1,
+                    errMessage: 'Missing required parameter'
+                });
+            }else{
+                if(data.length > 0 && data[0].doctorId){
+                    data.map(item => {
+                        item.maxNumber = MAX_NUMBER_SCHEDULE;
+                    })
+                    let exist = await db.Schedule.findAll({
+                        where: {doctorId: data[0].doctorId, date: data[0].date},
+                        attributes: ['timeType', 'date', 'doctorId', 'maxNumber'],
+                    })
+                    console.log('check data from FE:', data);
+                    console.log('check database:', exist);
+                    let toCreate = _.differenceWith(data, exist, (a, b) => {
+                        return a.timeType === b.timeType && new Date(a.date).getTime() === new Date(b.date).getTime();
+                    });
+                    console.log('check toCreate:', toCreate);
+                    if(toCreate.length > 0) await db.Schedule.bulkCreate(toCreate);
+                    resolve({
+                        errCode: 0,
+                        errMessage: 'Successfully'
+                    })
+                }
+            }
+        }catch(error){
+            reject(error);
+        }
+    })
+}
+
 module.exports = {
-    getTopDoctorHome, getAllDoctors, saveInfoDoctor, getDetailDoctorById
+    getTopDoctorHome, getAllDoctors, saveInfoDoctor, getDetailDoctorById, 
+    createSchedule
 }

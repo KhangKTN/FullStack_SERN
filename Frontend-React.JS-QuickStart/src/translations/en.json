@@ -35,6 +35,9 @@
             "manage-specialty": "Manage Specialties",
             "handbook": "Handbook",
             "manage-handbook": "Manage Handbook"
+        },
+        "doctor": {
+            "manage-schedule": "Manage Doctor's Schedule"
         }
     },
     "manage-user": {
@@ -55,5 +58,11 @@
     "homepage": {
         "outstanding-doctor": "Out Standing Doctor",
         "more-infor": "More information"
+    },
+    "manage-schedule": {
+        "title": "Manage medical examination schedules",
+        "choose-doctor": "Choose doctor",
+        "choese-date": "Choose an examination date",
+        "save": "Add schedule"
     }
 }

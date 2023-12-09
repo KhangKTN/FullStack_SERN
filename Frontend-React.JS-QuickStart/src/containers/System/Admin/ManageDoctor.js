@@ -115,7 +115,7 @@ class ManageDoctor extends Component {
                             value={this.state.selectedDoctor}
                             onChange={this.handleChange}
                             options={this.state.doctors}
-                            className='form-control'
+                            // className='form-control'
                         />
                     </div>
                     <div className='info-right form-group'>
@@ -130,7 +130,7 @@ class ManageDoctor extends Component {
                         value={this.state.contentMarkdown}
                     />
                 </div>
-                <button className='save-content-doctor' onClick={() => this.handleSaveContentMarkdown()}>Save infomation</button>
+                <button className='save-content-doctor btn' onClick={() => this.handleSaveContentMarkdown()}>Save infomation</button>
             </div>
         );
     }

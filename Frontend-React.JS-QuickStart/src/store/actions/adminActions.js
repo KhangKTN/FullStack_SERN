@@ -268,3 +268,26 @@ export const saveDetailDoctor = (data) => {
         }
     }
 }
+
+export const fetchAllcodeTime = (type) => {
+    return async(dispatch, getState) => {
+        try {
+            let res = await getAllCodeService('TIME');
+            console.log('...check allcode time from action:', res);
+            if(res && res.errCode === 0){
+                dispatch({
+                    type: actionTypes.FETCH_ALLCODE_TIME_SUCCESS,
+                    dataTime: res.data
+                })
+            }
+            else{
+                dispatch({
+                    type: actionTypes.FETCH_ALLCODE_TIME_FAILED
+                })
+            }
+        } catch (error) {
+            console.log('...Fetch allcode time failed:', error);
+            dispatch({type: actionTypes.FETCH_ALL_DOCTOR_FAILED});
+        }
+    }
+}
