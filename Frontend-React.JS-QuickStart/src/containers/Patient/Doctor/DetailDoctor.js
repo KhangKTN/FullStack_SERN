@@ -5,7 +5,7 @@ import HomeHeader from '../../HomePage/HomeHeader';
 import { LANGUAGES } from '../../../utils';
 import './DetailDoctor.scss'
 import {getDetailInfoDoctor} from '../../../services/userService'
-
+import DoctorSchedule from './DoctorSchedule';
 class DetailDoctor extends Component {
 
     constructor(props){
@@ -33,7 +33,6 @@ class DetailDoctor extends Component {
 
     render() {
         let {detailDoctor} = this.state;
-        console.log('check doctor:', detailDoctor);
         let name = ''
         if(detailDoctor && detailDoctor.positionData){
             name = this.props.language === LANGUAGES.VI ? `${detailDoctor.positionData.valueVi}, ${detailDoctor.lastName} ${detailDoctor.firstName}` :
@@ -60,7 +59,11 @@ class DetailDoctor extends Component {
                         </div>
                     </div>
                     <div className='schedule-doctor'>
-                        Lich kham benh
+                        <div className='schedule-select'>
+                            <DoctorSchedule doctorId={detailDoctor.id} />
+                        </div>
+                        <div className='doctor-address'>
+                        </div>
                     </div>
                     <div className='detail-info'>
                         {detailDoctor && detailDoctor.Markdown && detailDoctor.Markdown.contentHTML &&

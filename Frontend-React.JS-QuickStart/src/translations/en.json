@@ -64,5 +64,13 @@
         "choose-doctor": "Choose doctor",
         "choese-date": "Choose an examination date",
         "save": "Add schedule"
+    },
+    "patient":{
+        "detail-doctor": {
+            "schedule": "Examination schedule",
+            "no-schedule": "There are no appointments scheduled today",
+            "choose": "Choose",
+            "book-free": "and book free"
+        }
     }
 }

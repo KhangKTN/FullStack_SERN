@@ -152,7 +152,7 @@ let createSchedule = (data) => {
                     console.log('check data from FE:', data);
                     console.log('check database:', exist);
                     let toCreate = _.differenceWith(data, exist, (a, b) => {
-                        return a.timeType === b.timeType && new Date(a.date).getTime() === new Date(b.date).getTime();
+                        return a.timeType === b.timeType && a.date == b.date;
                     });
                     console.log('check toCreate:', toCreate);
                     if(toCreate.length > 0) await db.Schedule.bulkCreate(toCreate);
@@ -168,7 +168,41 @@ let createSchedule = (data) => {
     })
 }
 
+let getScheduleDoctor = (doctorId, date) => {
+    return new Promise(async(resolve, reject) => {
+        try {
+            let result = [];
+            console.log(`check doctorId: ${doctorId}, date: ${date}`);
+            if(doctorId && date){
+                result = await db.Schedule.findAll({
+                    where: {doctorId: doctorId, date: date},
+                    include: [
+                        // {model: db., attributes: ['description', 'contentHTML', 'contentMarkdown']},
+                        {model: db.Allcode, as: 'timeData', attributes: ['valueEn', 'valueVi']}
+                    ],
+                    nest: true,
+                    raw: false
+                })
+                resolve({
+                    errCode: 0,
+                    data: result,
+                    message: 'Get Schedule Doctor Successfully!'
+                });
+            }
+            else{
+                resolve({
+                    errCode: 1,
+                    data: result,
+                    message: 'Missing required parameter!'
+                });
+            }
+        } catch (error) {
+            reject(error);
+        }
+    })
+}
+
 module.exports = {
     getTopDoctorHome, getAllDoctors, saveInfoDoctor, getDetailDoctorById, 
-    createSchedule
+    createSchedule, getScheduleDoctor
 }

@@ -97,6 +97,19 @@ class ManageSchedule extends Component {
                     })
                     console.log('check result:', result);
                     let res = await saveBulkScheduleDoctor(result);
+                    if(res && res.errCode === 0){
+                        toast.success("Successfully saved schedule!");
+                        let data = this.state.dataTime;
+                        data.map(item => item.isSelected = false);
+                        this.setState({
+                            doctors: [],
+                            dataTime: data,
+                            selectedDoctor: '',
+                            currentDate: ''
+                        })
+                    }else{
+                        toast.error("Error when saving schedule!")
+                    }
                 }else{
                     toast.error("You must select at least one time!")
                 }
@@ -126,13 +139,13 @@ class ManageSchedule extends Component {
                         <div className='col-6'>
                             <label className='mb-2'><FormattedMessage id='manage-schedule.choose-date'/></label>
                             {/* <input type='' className='form-control'/> */}
-                            <DataPicker className='form-control' minDate={new Date()} value={this.state.currentDate} onChange={this.handleOnChangeDatePicker}/>
+                            <DataPicker className='form-control' minDate={new Date().getTime() - 86400000} value={this.state.currentDate} onChange={this.handleOnChangeDatePicker}/>
                         </div>
                         <div className='col-12 choose-time row'>
                             {timeArr && timeArr.length > 0 && timeArr.map((item, index) => {
                                 return(
                                     <button key={index} onClick={() => this.handleClickTime(item)} 
-                                        className={item.isSelected ? 'm-s-time-slot btn btn-info' : 'm-s-time-slot btn btn-dark'} >
+                                        className={item.isSelected ? 'm-s-time-slot btn btn-info' : 'm-s-time-slot btn btn-secondary'} >
                                         {this.props.language === LANGUAGES.VI ? item.valueVi : item.valueEn}
                                     </button>
                                 )

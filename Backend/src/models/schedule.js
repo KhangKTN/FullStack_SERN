@@ -6,14 +6,15 @@ const{
 module.exports = (sequelize, Datatypes) => {
     class Schedule extends Model{
         static associate(models){
-
+            Schedule.belongsTo(models.User, {foreignKey: 'doctorId'});
+            Schedule.belongsTo(models.Allcode, {foreignKey: 'timeType', targetKey: 'keyMap', as: 'timeData'})
         }
     };
     Schedule.init({
         //id: Datatypes.STRING,
         currentNumber: Datatypes.INTEGER,
         maxNumber: Datatypes.INTEGER,
-        date: Datatypes.DATE,
+        date: Datatypes.STRING,
         timeType: Datatypes.STRING,
         doctorId: Datatypes.INTEGER,
     },{

@@ -1,0 +1,32 @@
+.doctor-schedule-container{
+    .schedule-date{
+        width: 35%;
+    }
+
+    .schedule-time{
+        .title-calendar{
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .time-choose{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 150px));
+            gap: 10px;
+            margin: 20px 0;
+
+            .time-slot{
+                transition: 0.3s linear;
+                padding: 10px 0px;
+                border: none;
+
+                &:hover{
+                    background-color: palevioletred;
+                    // background-image: linear-gradient(to left, #fbc2eb 0%, #a6c1ee 51%, #fbc2eb 100%);
+                    background-position: right center;
+                }
+            }
+
+        }
+    }
+}

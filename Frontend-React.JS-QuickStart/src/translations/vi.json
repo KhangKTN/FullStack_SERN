@@ -65,6 +65,14 @@
         "choose-doctor": "Chọn bác sĩ",
         "choose-date": "Chọn ngày khám",
         "save": "Thêm lịch khám"
+    },
+    "patient":{
+        "detail-doctor": {
+            "schedule": "Lịch khám",
+            "no-schedule": "Hôm nay không có lịch khám",
+            "choose": "Chọn",
+            "book-free": "và đặt lịch miễn phí"
+        }
     }
 
 }
