@@ -74,7 +74,7 @@ class DoctorSchedule extends Component {
         console.log('check list time:', listTime);
         return(
             <div className='doctor-schedule-container'>
-                <div className='schedule-date'>
+                <div className='schedule-date col-sm-12 col-md-10 col-lg-4'>
                     <select className='form-select text-secondary fw-bold' onChange={(event) => this.handleOnChange(event)}>
                         {options && options.length > 0 && options.map((item, index) => {
                             return <option value={item.value} key={item.value}>{item.label}</option>
@@ -87,11 +87,11 @@ class DoctorSchedule extends Component {
                     <div className='time-choose'>
                         {listTime && listTime.length > 0 && listTime.map((item, index) => {
                             return(
-                            <button key={index} className='time-slot btn btn-secondary'>{language === LANGUAGES.VI ? item.timeData.valueVi : item.timeData.valueEn}</button>) 
-                            }) 
+                                <button key={index} className='time-slot btn btn-secondary'>{language === LANGUAGES.VI ? item.timeData.valueVi : item.timeData.valueEn}</button>) 
+                            })
                         }
                     </div>
-                    {listTime && listTime.length > 0 && <h5><FormattedMessage id="patient.detail-doctor.choose"/> <i className='far fa-hand-point-up text-primary'></i> <FormattedMessage id="patient.detail-doctor.book-free"/></h5>}
+                    {listTime && listTime.length > 0 && <h5 className='text-sm-center text-md-start'><FormattedMessage id="patient.detail-doctor.choose"/> <i className='far fa-hand-point-up text-warning'></i> <FormattedMessage id="patient.detail-doctor.book-free"/></h5>}
                 </div>
             </div>
         ) 

@@ -19,13 +19,13 @@ class HomeHeader extends Component {
         let language = this.props.language;
         return (
             <React.Fragment>
-                <div className='home-header-container'>
-                <div className='home-header-content'>
+                <div className='home-header-container h-auto'>
+                <div className='home-header-content d-flex flex-column flex-sm-column flex-md-row '>
                     <div className='left-content'>
                         <i className="fas fa-bars"></i>
                         <div className='header-logo' onClick={() => this.props.history.push('/home')}></div>
                     </div>
-                    <div className='center-content'>
+                    <div className='center-content d-flex flex-column align-items-center flex-sm-column flex-md-row'>
                         <div className='child-content'>
                             <div><b><FormattedMessage id="home-header.speciality"/></b></div>
                             <div className='subs-title'><FormattedMessage id="home-header.search-doctor"/></div>

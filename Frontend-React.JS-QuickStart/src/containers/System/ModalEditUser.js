@@ -93,7 +93,7 @@ class ModalEditUser extends Component {
 
     render() {
         return (
-            <Modal size='lg' className='container' isOpen={this.props.isOpen} toggle={() => this.toggle()} >
+            <Modal size='lg' className='modal-user-container' isOpen={this.props.isOpen} toggle={() => this.toggle()} >
                 <ModalHeader className='modal-title' toggle={() => this.toggle()}>Edit user</ModalHeader>
                 <ModalBody>
                     <div className=''>

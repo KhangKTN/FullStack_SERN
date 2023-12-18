@@ -1,6 +1,6 @@
 .doctor-schedule-container{
+    width: 100%;
     .schedule-date{
-        width: 35%;
     }
 
     .schedule-time{
@@ -29,4 +29,15 @@
 
         }
     }
+}
+
+@media (max-width: 768px) {
+    .doctor-schedule-container{
+        .schedule-time{
+            .time-choose{
+                justify-content: center;
+            }
+        }
+    }
+
 }

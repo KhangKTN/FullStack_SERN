@@ -27,7 +27,6 @@ class UserManage extends Component {
             })
         } */
         await this.getAllUsersFromReact();
-        
     }
 
     handleAddNewUser = () => {
@@ -64,7 +63,6 @@ class UserManage extends Component {
             }else{
                 this.setState({message: response.message});
                 return false;
-                // alert(response.message);
             }
         } catch (error) {
             console.log(error);

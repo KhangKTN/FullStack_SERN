@@ -1,4 +1,5 @@
 import doctorService from '../services/doctorService'
+// import {getDetailDoctorById} from '../services/doctorService'
 
 let getTopDoctorHome = async(req, res) => {
     let limit = req.query.limit;
@@ -81,7 +82,19 @@ let getScheduleDoctor = async(req, res) => {
     }
 }
 
+let getDoctorClinic = async(req, res) => {
+    try {
+        let doctorClinic = await doctorService.getDoctorClinic(req.query.doctorId);
+        return res.status(200).json(doctorClinic)
+    } catch (error) {
+        return res.status(200).json({
+            errCode: -1,
+            errMessage: 'Error from the server'
+        })
+    }
+}
+
 module.exports = {
     getTopDoctorHome, getAllDoctors, saveInfoDoctor, getDetailDoctorById, createSchedule,
-    getScheduleDoctor
+    getScheduleDoctor, getDoctorClinic
 }

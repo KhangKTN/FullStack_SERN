@@ -36,6 +36,7 @@ export const fetchGenderFailed = () => ({
     type: actionTypes.FETCH_GENDER_FAILED
 })
 
+
 export const fetchPositionStart = () => {
     return async(dispatch, getState) => {
         try {
@@ -263,7 +264,6 @@ export const saveDetailDoctor = (data) => {
             }
         } catch (error) {
             toast.error('Save detail doctor failed!');
-            console.log('...Fetch all doctor failed:', error);
             dispatch({type: actionTypes.SAVE_DETAIL_DOCTOR_FAILED});
         }
     }
@@ -288,6 +288,41 @@ export const fetchAllcodeTime = (type) => {
         } catch (error) {
             console.log('...Fetch allcode time failed:', error);
             dispatch({type: actionTypes.FETCH_ALL_DOCTOR_FAILED});
+        }
+    }
+}
+
+export const fetchAllRequiredDoctorStart = () => {
+    return async(dispatch, getState) => {
+        try {
+            // dispatch({
+            //     type: actionTypes.FETCH_REQUIRED_DOCTOR_START
+            // })
+            let prices = await getAllCodeService("PRICE");
+            let payments = await getAllCodeService("PAYMENT");
+            let provinces = await getAllCodeService("PROVINCE");
+            let data = {
+                prices: prices.data, 
+                payments: payments.data, 
+                provinces: provinces.data
+            }
+            console.log('check data:', data);
+            if(prices && prices.errCode === 0 && payments && payments.errCode === 0 && provinces && provinces.errCode === 0){
+                dispatch({
+                    type: actionTypes.FETCH_REQUIRED_DOCTOR_SUCCESS,
+                    requiredData: data
+                })
+            }
+            else{
+                dispatch({
+                    type: actionTypes.FETCH_ALLCODE_TIME_FAILED
+                })
+            }
+        } catch (error) {
+            console.log('fetchAllRequiredDoctor error:', error);
+            dispatch({
+                type: actionTypes.FETCH_ALLCODE_TIME_FAILED
+            })
         }
     }
 }

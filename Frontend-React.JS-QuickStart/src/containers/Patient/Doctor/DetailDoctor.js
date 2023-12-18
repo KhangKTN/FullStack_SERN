@@ -6,6 +6,7 @@ import { LANGUAGES } from '../../../utils';
 import './DetailDoctor.scss'
 import {getDetailInfoDoctor} from '../../../services/userService'
 import DoctorSchedule from './DoctorSchedule';
+import DoctorClinicInfo from './DoctorClinicInfo';
 class DetailDoctor extends Component {
 
     constructor(props){
@@ -41,17 +42,17 @@ class DetailDoctor extends Component {
         return (
             <React.Fragment>
                 <HomeHeader isShowBanner={false}/>
-                <div className='doctor-detail-container'>
+                <div className='doctor-detail-container '>
                     <div className='intro-doctor'>
-                        <div className='content-left'>
+                        <div className='content-left col-md-3'>
                             <div className='img' style={{backgroundImage: `url(${detailDoctor.image})`}}></div>
                         </div>
 
-                        <div className='content-right'>
+                        <div className='content-right col-md-9'>
                             <div className='doctor-name'>{name}</div>
                             <div className='info-doctor'>
                                 {detailDoctor.Markdown && detailDoctor.Markdown.description && 
-                                    <textarea typeof='text' readOnly>
+                                    <textarea className='w-100' typeof='text' readOnly>
                                         {detailDoctor.Markdown.description}
                                     </textarea>
                                 }
@@ -59,10 +60,11 @@ class DetailDoctor extends Component {
                         </div>
                     </div>
                     <div className='schedule-doctor'>
-                        <div className='schedule-select'>
-                            <DoctorSchedule doctorId={detailDoctor.id} />
+                        <div className='schedule-select col-md-7'>
+                            <DoctorSchedule doctorId={detailDoctor.id}/>
                         </div>
-                        <div className='doctor-address'>
+                        <div className='doctor-clinic-info col-md-5'>
+                            <DoctorClinicInfo doctorId={detailDoctor.id}/>
                         </div>
                     </div>
                     <div className='detail-info'>

@@ -72,7 +72,28 @@
             "no-schedule": "Hôm nay không có lịch khám",
             "choose": "Chọn",
             "book-free": "và đặt lịch miễn phí"
+        },
+        "doctor-clinic": {
+            "address-clinic": "Địa chỉ khám",
+            "price": "Giá khám",
+            "hide-detail": "Ẩn chi tiết",
+            "show-detail": "Hiện chi tiết"
+        }
+
+    },
+    "admin": {
+        "manage-doctor":{
+            "title": "Tạo thêm thông tin bác sĩ",
+            "select-doctor": "Bác sĩ",
+            "intro": "Thông tin giới thiệu",
+            "save": "Lưu thông tin",
+            "clear": "Xoá nhập",
+            "price": "Giá khám",
+            "payment": "Phương thức thanh toán",
+            "province": "Tỉnh thành",
+            "nameClinic": "Tên phòng khám",
+            "addressClinic": "Địa chỉ phòng khám",
+            "note": "Ghi chú"
         }
     }
-
 }

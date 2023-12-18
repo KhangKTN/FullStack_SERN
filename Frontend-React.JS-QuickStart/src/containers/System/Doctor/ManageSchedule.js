@@ -127,7 +127,7 @@ class ManageSchedule extends Component {
                 </div>
                 <div className='m-s-content'>
                     <div className='row'>
-                        <div className='col-6'>
+                        <div className='col-sm-12 col-md-6'>
                             <label className='mb-2'><FormattedMessage id='manage-schedule.choose-doctor'/></label>
                             {/* <input className='form-control'/> */}
                             <Select
@@ -136,7 +136,7 @@ class ManageSchedule extends Component {
                                 options={this.state.doctors}
                             />
                         </div>
-                        <div className='col-6'>
+                        <div className='col-sm-12 col-md-6'>
                             <label className='mb-2'><FormattedMessage id='manage-schedule.choose-date'/></label>
                             {/* <input type='' className='form-control'/> */}
                             <DataPicker className='form-control' minDate={new Date().getTime() - 86400000} value={this.state.currentDate} onChange={this.handleOnChangeDatePicker}/>

@@ -62,7 +62,7 @@
     "manage-schedule": {
         "title": "Manage medical examination schedules",
         "choose-doctor": "Choose doctor",
-        "choese-date": "Choose an examination date",
+        "choose-date": "Choose an examination date",
         "save": "Add schedule"
     },
     "patient":{
@@ -71,6 +71,27 @@
             "no-schedule": "There are no appointments scheduled today",
             "choose": "Choose",
             "book-free": "and book free"
+        },
+        "doctor-clinic": {
+            "address-clinic": "Examination address",
+            "price": "Examination price",
+            "hide-detail": "Hide details",
+            "show-detail": "Show details"
+        }
+    },
+    "admin": {
+        "manage-doctor":{
+            "title": "Create additional doctor information",
+            "select-doctor": "Select doctor",
+            "intro": "Introductory information",
+            "save": "Save information",
+            "clear": "Clear input",
+            "price": "Price",
+            "payment": "Pay method",
+            "province": "City",
+            "nameClinic": "Clinic name",
+            "addressClinic": "Clinic address",
+            "note": "Notes"
         }
     }
 }
