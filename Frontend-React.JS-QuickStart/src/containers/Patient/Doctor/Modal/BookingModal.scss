@@ -1,0 +1,37 @@
+.modal-user-container{
+    .intro-doctor{
+        background-image: none;
+        background-color: aliceblue;
+        border-radius: 5px;
+        padding: 0 10px 10px 10px;
+        margin-bottom: 10px;
+
+        .content-left{
+        }
+
+        .content-right{
+            margin-left: 20px;
+            padding: 5px 10px;
+
+            .doctor-name{
+                font-size: 25px;
+            }
+            .info-doctor{
+                margin: 10px 0;
+                font-size: 1.2rem;
+                
+                .clinic-address{
+                    width: 100%;
+                    padding: 10px;
+                    overflow: scroll;
+                    height: max-content;
+                    outline: none;
+                    border: 2px dashed skyblue;
+                    border-radius: 0 10px;
+                    background-color: inherit;
+                    resize: none;
+                }
+            }
+        }
+    }
+}

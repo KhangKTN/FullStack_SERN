@@ -1,0 +1,44 @@
+.intro-doctor{
+    background-image: linear-gradient(to bottom left, #e9b7ce, #d3f3f1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+
+    .content-left{
+        .img{
+            margin: auto;
+            width: 150px;
+            height: 150px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            border-radius: 100%;
+        }
+    }
+
+    .content-right{
+        margin-left: 20px;
+        padding: 5px 10px;
+
+        .doctor-name{
+            font-size: 25px;
+        }
+        .info-doctor{
+            margin-top: 10px;
+            font-size: 1.2rem;
+
+            textarea{
+                width: 100%;
+                padding: 20px;
+                overflow:scroll;
+                height: max-content;
+                outline: none;
+                border: 2px dashed plum;
+                border-radius: 0 10px;
+                background-color: inherit;
+                resize: none;
+            }
+        }
+    }
+}

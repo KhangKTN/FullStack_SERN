@@ -1,51 +1,8 @@
 .doctor-detail-container{
-    margin: 10px 50px;
+    margin: 10px 0px;
     border-radius: 10px;
     background-color: #ecf5f4;
     overflow: hidden;
-
-    .intro-doctor{
-        background-image: linear-gradient(to bottom left, #e9b7ce, #d3f3f1);
-        display: flex;
-        justify-content: center;
-        // align-items: center;
-        padding: 20px;
-
-        .content-left{
-            // width: 20%;
-            .img{
-                margin: auto;
-                width: 150px;
-                height: 150px;
-                background-size: cover;
-                background-repeat: no-repeat;
-                border-radius: 100%;
-            }
-        }
-        .content-right{
-            margin-left: 20px;
-            // width: 80%;
-            padding: 5px 10px;
-
-            .doctor-name{
-                font-size: 25px;
-            }
-            .info-doctor{
-                margin-top: 10px;
-                font-size: 1.2rem;
-                textarea{
-                    width: 100%;
-                    height: 150px;
-                    outline: none;
-                    border: none;
-                    background-color: inherit;
-                    resize: none;
-                }
-            }
-        }
-    }
-
-
 
     .schedule-doctor{
         padding: 25px 20px;

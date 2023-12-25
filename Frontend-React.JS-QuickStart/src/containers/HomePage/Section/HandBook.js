@@ -22,27 +22,27 @@ class HandBook extends Component {
                     <div className='section-body'>
                         <Slider {...this.props.setting}>
                             <div className='section-body-ele'>
-                                <img className='img img-handbook'/>
+                                <div className='img img-handbook'/>
                                 <h4>Điều trị phục hồi chức năng cho bệnh nhân đột quỵ tại bệnh viện Hồng Ngọc</h4>
                             </div>
                             <div className='section-body-ele'>
-                                <img className='img img-handbook'/>
+                                <div className='img img-handbook'/>
                                 <h4>Bệnh tiểu đường là gì? Nguyên nhân, dấu hiệu nhận biết và hướng điều trị</h4>
                             </div>
                             <div className='section-body-ele'>
-                                <img className='img img-handbook'/>
+                                <div className='img img-handbook'/>
                                 <h4>Tiêu hoá</h4>
                             </div>
                             <div className='section-body-ele'>
-                                <img className='img img-handbook'/>
+                                <div className='img img-handbook'/>
                                 <h4>Tiêm mạch</h4>
                             </div>
                             <div className='section-body-ele'> 
-                                <img className='img img-handbook'/>
+                                <div className='img img-handbook'/>
                                 <h4>Tai mũi họng</h4>
                             </div>
                             <div className='section-body-ele'>
-                                <img className='img img-handbook'/>
+                                <div className='img img-handbook'/>
                                 <h4>Cột sống</h4>
                             </div>
                         </Slider>

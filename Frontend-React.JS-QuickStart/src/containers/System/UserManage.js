@@ -108,7 +108,7 @@ class UserManage extends Component {
     render() {
         let arrUsers = this.state.arrUsers;
         return (
-            <div id='user-manager' className='users-container container-fluid'>
+            <div id='user-manager' className='users-container container'>
                 <div className="title text-center">Manage Users</div>
                 <ModalUser
                     isOpen = {this.state.isOpenModalUser}
@@ -125,8 +125,9 @@ class UserManage extends Component {
                         editUser = {this.doEditUser}
                     />
                 }
-                <table className='styled-table'>
-                    <thead>
+                <div className='table-responsive'>
+                <table className='table table-striped table-hover styled-table align-middle'>
+                    <thead className='text-center'>
                         <tr>
                             <th>Firstname</th>
                             <th>Lastname</th>
@@ -156,6 +157,7 @@ class UserManage extends Component {
                         })}
                     </tbody>
                 </table>
+                </div>
                 <div className='add'>
                     <button onClick={() => this.handleAddNewUser()} className='button-add'><i className="fas fa-plus"></i> Add new user</button>
                 </div>

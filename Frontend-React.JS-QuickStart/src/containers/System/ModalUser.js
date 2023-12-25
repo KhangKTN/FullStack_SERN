@@ -90,7 +90,9 @@ class ModalUser extends Component {
     render() {
         return (
             <Modal size='lg' className='modal-user-container container' isOpen={this.props.isOpen} toggle={() => this.toggle()} >
-                <ModalHeader className='modal-title' toggle={() => this.toggle()}>Create a new user</ModalHeader>
+                <ModalHeader  toggle={() => this.toggle()}>Create a new user
+                {/* <button onClick={() => this.toggle()} type="button" class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close"></button> */}
+                </ModalHeader>
                 <ModalBody>
                     <div className=''>
                         <div className='row'>

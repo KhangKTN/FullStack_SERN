@@ -74,7 +74,6 @@ let saveInfoDoctor = (inputData) => {
                         doctorId: inputData.doctorId
                     });
                 }else{
-                    // console.log(doctor);
                     // doctor.contentHTML = inputData.contentHTML;
                     // doctor.contentMarkdown = inputData.contentMarkdown;
                     // doctor.description = inputData.description;
@@ -215,7 +214,8 @@ let getScheduleDoctor = (doctorId, date) => {
                     where: {doctorId: doctorId, date: date},
                     include: [
                         // {model: db., attributes: ['description', 'contentHTML', 'contentMarkdown']},
-                        {model: db.Allcode, as: 'timeData', attributes: ['valueEn', 'valueVi']}
+                        {model: db.Allcode, as: 'timeData', attributes: ['valueEn', 'valueVi']},
+                        {model: db.User,  attributes: ['firstName', 'lastName']}
                     ],
                     nest: true,
                     raw: false
@@ -271,7 +271,47 @@ let getDoctorClinic = (doctorId) => {
     })
 }
 
+let getDoctorProfile = (doctorId) => {
+    return new Promise(async(resolve, reject) => {
+        try {
+            if(!doctorId){
+                resolve({
+                    errCode: 1,
+                    errMessage: 'Missing required parameter!'
+                })
+            }else{
+                let doctorProfile = await db.User.findOne({
+                    attributes: ['id', 'firstName', 'lastName', 'image'],
+                    where: {id: doctorId},
+                    include: [
+                        {model: db.Markdown, attributes: ['description']},
+                        {model: db.Allcode, as: 'positionData', attributes: ['valueEn', 'valueVi']},
+                        {   model: db.Doctor_Infor, 
+                            attributes: ['nameClinic', 'addressClinic'],
+                            include: [
+                                {model: db.Allcode, as: 'priceData', attributes: ['valueEn', 'valueVi']},
+                                {model: db.Allcode, as: 'paymentData', attributes: ['valueEn', 'valueVi']},
+                                {model: db.Allcode, as: 'provinceData', attributes: ['valueEn', 'valueVi']},
+                            ]
+                        },
+                    ],
+                    raw: false
+                })
+                if(doctorProfile && doctorProfile.image){
+                    doctorProfile.image = new Buffer(doctorProfile.image, 'base64').toString('binary');
+                }
+                resolve({
+                    errCode: 0,
+                    data: doctorProfile 
+                })
+            }
+        } catch (error) {
+            reject(error)
+        }
+    })
+}
+
 module.exports = {
     getTopDoctorHome, getAllDoctors, saveInfoDoctor, getDetailDoctorById, 
-    createSchedule, getScheduleDoctor, getDoctorClinic
+    createSchedule, getScheduleDoctor, getDoctorClinic, getDoctorProfile
 }

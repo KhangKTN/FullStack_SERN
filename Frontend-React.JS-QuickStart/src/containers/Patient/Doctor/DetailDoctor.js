@@ -5,6 +5,7 @@ import HomeHeader from '../../HomePage/HomeHeader';
 import { LANGUAGES } from '../../../utils';
 import './DetailDoctor.scss'
 import {getDetailInfoDoctor} from '../../../services/userService'
+import ProfileDoctor from './ProfileDoctor';
 import DoctorSchedule from './DoctorSchedule';
 import DoctorClinicInfo from './DoctorClinicInfo';
 class DetailDoctor extends Component {
@@ -42,23 +43,8 @@ class DetailDoctor extends Component {
         return (
             <React.Fragment>
                 <HomeHeader isShowBanner={false}/>
-                <div className='doctor-detail-container '>
-                    <div className='intro-doctor'>
-                        <div className='content-left col-md-3'>
-                            <div className='img' style={{backgroundImage: `url(${detailDoctor.image})`}}></div>
-                        </div>
-
-                        <div className='content-right col-md-9'>
-                            <div className='doctor-name'>{name}</div>
-                            <div className='info-doctor'>
-                                {detailDoctor.Markdown && detailDoctor.Markdown.description && 
-                                    <textarea className='w-100' typeof='text' readOnly>
-                                        {detailDoctor.Markdown.description}
-                                    </textarea>
-                                }
-                            </div>
-                        </div>
-                    </div>
+                <div className='doctor-detail-container container px-0 mx-auto'>
+                    <ProfileDoctor doctorId={detailDoctor.id}/>
                     <div className='schedule-doctor'>
                         <div className='schedule-select col-md-7'>
                             <DoctorSchedule doctorId={detailDoctor.id}/>

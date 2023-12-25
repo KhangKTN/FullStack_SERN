@@ -1,5 +1,6 @@
 #user-manager, .users-container{
     margin-bottom: 100px;
+
     .styled-table {
         border-collapse: collapse;
         margin: 25px 0;
@@ -17,7 +18,7 @@
         }
 
         th, td {
-            padding: 12px 15px;
+            padding: 8px 15px;
         }
 
         tbody tr {
@@ -43,7 +44,6 @@
 
     .button{
         font-size: .8em;
-        margin-left: 8px;
         background: linear-gradient(to right, #a860df 0%, #7e5cee 100%);
         padding: 10px 20px;
         text-align: center;
@@ -56,6 +56,10 @@
         &:hover{
             color: rgb(29, 212, 199);
             background: linear-gradient(to left, #a860df 0%, #7e5cee 100%);
+        }
+
+        &.del{
+            margin-top: 8px;
         }
     }
 

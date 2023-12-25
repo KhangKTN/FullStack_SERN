@@ -78,6 +78,18 @@
             "price": "Giá khám",
             "hide-detail": "Ẩn chi tiết",
             "show-detail": "Hiện chi tiết"
+        },
+        "booking-modal": {
+            "title": "Đặt lịch khám bệnh",
+            "price": "Giá khám",
+            "fullname": "Họ và tên",
+            "phone": "Số điện thoại",
+            "address": "Địa chỉ liên hệ",
+            "reason": "Mô tả bệnh lý",
+            "bod": "Ngày sinh",
+            "sex": "Giới tính",
+            "confirm": "Đặt lịch",
+            "cancel": "Huỷ"
         }
 
     },

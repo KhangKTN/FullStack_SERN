@@ -77,6 +77,18 @@
             "price": "Examination price",
             "hide-detail": "Hide details",
             "show-detail": "Show details"
+        },
+        "booking-modal": {
+            "title": "Schedule a medical examination",
+            "price": "Price",
+            "fullname": "Full name",
+            "phone": "Phone number",
+            "address": "Address",
+            "reason": "Disease description",
+            "bod": "Birth of day",
+            "sex": "Sex",
+            "confirm": " Confirm",
+            "cancel": "Cancel"
         }
     },
     "admin": {

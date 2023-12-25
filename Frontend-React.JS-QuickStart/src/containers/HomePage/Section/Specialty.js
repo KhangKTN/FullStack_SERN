@@ -22,27 +22,27 @@ class Specialty extends Component {
                     <div className='section-body'>
                         <Slider {...this.props.setting}>
                             <div className='section-body-ele'>
-                                <img className='img  img-specialty'/>
+                                <div className='img  img-specialty'/>
                                 <h4>Cơ xương khớp</h4>
                             </div>
                             <div className='section-body-ele'>
-                                <img className='img img-specialty'/>
+                                <div className='img img-specialty'/>
                                 <h4>Thần kinh</h4>
                             </div>
                             <div className='section-body-ele'>
-                                <img className='img img-specialty'/>
+                                <div className='img img-specialty'/>
                                 <h4>Tiêu hoá</h4>
                             </div>
                             <div className='section-body-ele'>
-                                <img className='img img-specialty'/>
+                                <div className='img img-specialty'/>
                                 <h4>Tiêm mạch</h4>
                             </div>
                             <div className='section-body-ele'> 
-                                <img className='img img-specialty'/>
+                                <div className='img img-specialty'/>
                                 <h4>Tai mũi họng</h4>
                             </div>
                             <div className='section-body-ele'>
-                                <img className='img img-specialty'/>
+                                <div className='img img-specialty'/>
                                 <h4>Cột sống</h4>
                             </div>
                         </Slider>

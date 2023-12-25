@@ -13,7 +13,7 @@
         padding: 10px 20px;
         // background-image: linear-gradient(to right top, rgb(217, 241, 217), rgb(75, 225, 75));
         background-color: rgba(143, 202, 61, 0.299);
-        backdrop-filter: blur(5px);
+        backdrop-filter: blur(10px);
         
         .left-content{
             width: 25%;
@@ -171,12 +171,14 @@
             width: 400px;
             display: flex;
             margin: 0 auto;
-            background: rgba(227, 227, 81, 0.8);
+            background: #cbce5382;
+            backdrop-filter: blur(5px);
             border-radius: 50px;
     
             .fa-search{
                 margin: 10px 0 0 10px;
                 font-size: 2rem;
+                // color: #49bce2;
             }
     
             .search-input{
@@ -186,6 +188,7 @@
                 font-size: 1.3rem;
                 margin: 0 0 0 5px;
                 background: transparent;
+                // color: #49bce2;
                 border-radius: 50px;
     
                 &:focus{
@@ -211,7 +214,7 @@
                 align-items: center;
 
                 &:hover{
-                    color: aqua;
+                    color: #49bce2;
                     cursor: pointer;
                 }
 
@@ -243,7 +246,7 @@
                     width: 75px;
                     height: 75px;
                     border-radius: 20px;
-                    box-shadow: 0px 1px 2px rgba(0, 0, 0, .5);
+                    box-shadow: 0px 0px 2px rgba(0, 0, 0, .5);
                     background-color: antiquewhite;
                     background-position: center;
                     background-size: 50px;
