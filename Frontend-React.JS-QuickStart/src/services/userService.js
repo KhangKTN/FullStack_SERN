@@ -67,9 +67,34 @@ const verifyBooking = (data) => {
     return axios.post(`/api/verify-booking-appointment?token=${data.token}&doctorId=${data.doctorId}`);
 }
 
+const createNewSpecialty = (data) => {
+    return axios.post(`/api/create-new-specialty`, data);
+}
+
+const getAllSpecialty = () => {
+    return axios.get(`/api/get-all-specialty`);
+}
+
+const getSpecialtyById = (id, province) => {
+    return axios.get(`/api/get-specialty-by-id?id=${id}&province=${province}`);
+}
+
+const createNewClinic = (data) => {
+    return axios.post(`/api/create-new-clinic`, data);
+}
+
+const getAllClinic = () => {
+    return axios.get(`/api/get-all-clinic`);
+}
+
+const getClinicById = (id) => {
+    return axios.get(`/api/get-clinic-by-id?id=${id}`);
+}
+
 export {
     handleLoginApi, getAllUser, createNewUserService, deleteUserService, 
     editUserService, getAllCodeService, getTopDoctorService, getAllDoctorsService, saveInfoDoctor,
     getDetailInfoDoctor, saveBulkScheduleDoctor, getScheduleDoctor, getDoctorClinic, getDoctorProfile,
-    patientBooking, verifyBooking
+    patientBooking, verifyBooking, createNewSpecialty, getAllSpecialty, getSpecialtyById,
+    createNewClinic, getAllClinic, getClinicById
 };

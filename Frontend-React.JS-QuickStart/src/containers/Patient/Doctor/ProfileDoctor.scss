@@ -4,9 +4,10 @@
     align-items: center;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 10px 20px;
 
     .content-left{
+        width: 25%;
         .img{
             margin: auto;
             width: 150px;
@@ -18,6 +19,7 @@
     }
 
     .content-right{
+        width: 75%;
         margin-left: 20px;
         padding: 5px 10px;
 
@@ -35,7 +37,7 @@
                 height: max-content;
                 outline: none;
                 border: 2px dashed plum;
-                border-radius: 0 10px;
+                border-radius: 10px;
                 background-color: inherit;
                 resize: none;
             }

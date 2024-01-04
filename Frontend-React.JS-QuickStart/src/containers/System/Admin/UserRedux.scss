@@ -26,10 +26,11 @@
     .preview-img-container{
         margin: 0 auto;
         display: flex;
-        justify-content: space-between;
+        // flex-direction: column;
+        justify-content: space-around;
         align-items: center;
         padding: 10px;
-        column-gap: 10px;
+        // gap: 10px;
         border-radius: 10px;
         border: 1px solid gainsboro;
     
@@ -58,11 +59,12 @@
         .preview-image{
             border-radius: 10px;
             border: 1px dashed blueviolet;
-            height: 100px;
+            height: 150px;
+            width: 150px;
+            cursor: pointer;
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
-            cursor: pointer;
         }
     }
 

@@ -1,0 +1,106 @@
+.specialty-detail-container{
+    .specialty-name{
+        padding: 0 100px;
+        margin: 0;
+    }
+
+    .specialty-detail-desc{
+        padding: 0 100px;
+        font-size: 1.2rem;
+        // text-overflow: hidden;
+    }
+
+    .list-doctor{
+        padding: 0 100px;
+        margin-bottom: 100px;
+        .doctor-container{
+            display: flex;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            padding: 20px;
+            background-color: rgb(249, 255, 255);
+    
+            .doctor-info{
+                width: 50%;
+                .intro-doctor{
+                    background-image: none;
+                    background-color: transparent;
+                    display: flex;
+                    flex-direction: column;
+                    // justify-content: baseline;
+                    text-align: center;
+                    padding: 0px;
+                
+                    .content-left{
+                        width: 100%;
+                        .img{
+                            margin: auto;
+                            width: 125px;
+                            height: 125px;
+                            background-size: cover;
+                            background-repeat: no-repeat;
+                            border-radius: 100%;
+                        }
+                    }
+                
+                    .content-right{
+                        width: 100%;
+                        margin-left: 20px;
+                        padding: 5px 10px;
+                
+                        .doctor-name{
+                            font-size: 25px;
+                        }
+                        .info-doctor{
+                            margin-top: 10px;
+                            font-size: 1.2rem;
+                
+                            textarea{
+                                width: 100%;
+                                padding: 20px;
+                                overflow: scroll;
+                                height: 150px;
+                                outline: none;
+                                // border: 2px dashed plum;
+                                border: none;
+                                border-radius: 0 10px;
+                                background-color: inherit;
+                                resize: none;
+                            }
+                        }
+                    }
+                }
+            }
+    
+            .schedule-info{
+                width: 50%;
+    
+                .doctor-clinic-infor-container{
+                    width: 100%;
+                    border-top: 1px solid gray;
+                    border-inline-start: none;
+                    padding: 0;
+                    padding-top: 20px;
+    
+                    .devide-line{
+                        height: 1px;
+                        width: 200px;
+                        border: 1px solid rgb(189, 189, 189);
+                        margin: 10px 0;
+                    }
+                
+                    .clinic-payment{
+                        a{  
+                            text-decoration: none;
+                            &:hover{
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}

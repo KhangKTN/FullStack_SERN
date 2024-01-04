@@ -57,7 +57,8 @@
     },
     "homepage": {
         "outstanding-doctor": "Out Standing Doctor",
-        "more-infor": "More information"
+        "more-infor": "More information",
+        "specialty-popular": "Popular specialties"
     },
     "manage-schedule": {
         "title": "Manage medical examination schedules",
@@ -101,6 +102,7 @@
             "price": "Price",
             "payment": "Pay method",
             "province": "City",
+            "specialty": "Specialty",
             "nameClinic": "Clinic name",
             "addressClinic": "Clinic address",
             "note": "Notes"

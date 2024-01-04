@@ -37,7 +37,6 @@ class BookingModal extends Component {
     }
 
     componentDidMount() {
-        console.clear();
         this.props.getGenders();
     }
 
@@ -66,7 +65,6 @@ class BookingModal extends Component {
 
     handleAddNewBooking = async() => {
         let {selectedScheduleData, language} = this.props;
-        console.clear();
         let firstName = selectedScheduleData.User.firstName;
         let lastName = selectedScheduleData.User.lastName;
         let name = language === LANGUAGES.VI ? lastName + ' ' + firstName : firstName + ' ' + lastName;
@@ -111,8 +109,8 @@ class BookingModal extends Component {
         let {language, selectedScheduleData} = this.props;
         let {doctorId} = this.state;
         // console.clear();
-        console.log('check info from BookingModal:', selectedScheduleData);
-        console.log('check state from BookingModal:', this.state);
+        // console.log('check info from BookingModal:', selectedScheduleData);
+        // console.log('check state from BookingModal:', this.state);
         return (
             <Modal size='lg' centered className='modal-user-container' isOpen={this.props.isOpen} toggle={() => this.toggle()} >
                 {/* <ModalHeader  toggle={() => this.toggle()}>Create a new user

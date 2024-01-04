@@ -12,7 +12,10 @@ module.exports = {
                 primaryKey: true,
                 type: Sequelize.INTEGER
             },
-            description:{
+            descriptionMarkdown:{
+                type: Sequelize.TEXT
+            },
+            descriptionHTML:{
                 type: Sequelize.TEXT
             },
             image:{

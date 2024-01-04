@@ -1,10 +1,13 @@
 .doctor-clinic-infor-container{
     width: 100%;
+    padding: 20px;
+    border-inline-start: 2px solid gray;
+    
     .devide-line{
         height: 1px;
         width: 200px;
         border: 1px solid rgb(189, 189, 189);
-        margin: 20px 0;
+        margin: 10px 0;
     }
 
     .clinic-payment{

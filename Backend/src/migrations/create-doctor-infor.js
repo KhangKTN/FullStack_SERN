@@ -12,6 +12,13 @@ module.exports = {
                 primaryKey: true,
                 type: Sequelize.INTEGER
             },
+            specialtyId:{
+                type: Sequelize.INTEGER
+            },
+            clinicId:{
+                // allowNull: false,
+                type: Sequelize.INTEGER
+            },
             doctorId:{
                 type: Sequelize.INTEGER,
                 allowNull: false,
@@ -25,14 +32,6 @@ module.exports = {
                 allowNull: false,
             },
             paymentId:{
-                type: Sequelize.STRING,
-                allowNull: false,
-            },
-            addressClinic:{
-                type: Sequelize.STRING,
-                allowNull: false,
-            },
-            nameClinic:{
                 type: Sequelize.STRING,
                 allowNull: false,
             },

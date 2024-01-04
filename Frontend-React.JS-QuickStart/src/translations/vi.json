@@ -58,7 +58,8 @@
     },
     "homepage": {
         "outstanding-doctor": "Bác sĩ nổi bật",
-        "more-infor": "Xem thêm"
+        "more-infor": "Xem thêm",
+        "specialty-popular": "Chuyên khoa phổ biến"
     },
     "manage-schedule": {
         "title": "Quản lý lịch khám bệnh",
@@ -103,6 +104,7 @@
             "price": "Giá khám",
             "payment": "Phương thức thanh toán",
             "province": "Tỉnh thành",
+            "specialty": "Chuyên khoa",
             "nameClinic": "Tên phòng khám",
             "addressClinic": "Địa chỉ phòng khám",
             "note": "Ghi chú"

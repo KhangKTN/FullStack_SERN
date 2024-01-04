@@ -57,7 +57,7 @@ class OutStandingDoctor extends Component {
                                 let imageBase64 = ''
                                 if(item.image){
                                     imageBase64 = new Buffer(item.image, 'base64').toString('binary');
-                                    console.log('Check imageBase64:', imageBase64);
+                                    // console.log('Check imageBase64:', imageBase64);
                                 }
                                 return(
                                     <div className='section-body-ele'>

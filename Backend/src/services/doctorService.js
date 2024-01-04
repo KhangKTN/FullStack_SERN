@@ -56,7 +56,7 @@ let saveInfoDoctor = (inputData) => {
         try {
             if(!inputData.doctorId || !inputData.contentHTML || !inputData.contentMarkdown 
             || !inputData.priceId || !inputData.paymentId || !inputData.provinceId 
-            || !inputData.nameClinic || !inputData.addressClinic){
+            || !inputData.specialtyId || !inputData.clinicId){
                 resolve({
                     errCode: 1,
                     errMessage: 'Missing required parameter!'
@@ -94,25 +94,23 @@ let saveInfoDoctor = (inputData) => {
                     raw: false
                 })
                 if(!doctorInfo){
-                    console.log('...start doctor');
                     await db.Doctor_Infor.create({
                         doctorId: inputData.doctorId,
                         priceId: inputData.priceId,
                         paymentId: inputData.paymentId,
                         provinceId: inputData.provinceId,
-                        nameClinic: inputData.nameClinic,
-                        addressClinic: inputData.addressClinic,
+                        specialtyId: inputData.specialtyId,
+                        clinicId: inputData.clinicId,
                         note: inputData.note
                     });
-                    console.log('...end create');
                 }else{
                     await doctorInfo.update({
                         doctorId: inputData.doctorId,
                         priceId: inputData.priceId,
                         paymentId: inputData.paymentId,
                         provinceId: inputData.provinceId,
-                        nameClinic: inputData.nameClinic,
-                        addressClinic: inputData.addressClinic,
+                        specialtyId: inputData.specialtyId,
+                        clinicId: inputData.clinicId,
                         note: inputData.note
                     })
                 }
@@ -141,7 +139,7 @@ let getDetailDoctorById = (id) => {
                 include: [
                     {model: db.Markdown, attributes: ['description', 'contentHTML', 'contentMarkdown']},
                     {   model: db.Doctor_Infor, 
-                        attributes: ['priceId', 'paymentId', 'provinceId', 'nameClinic', 'addressClinic', 'note'],
+                        attributes: ['priceId', 'paymentId', 'provinceId', 'specialtyId', 'clinicId', 'note'],
                         include: [
                             {model: db.Allcode, as: 'priceData', attributes: ['valueEn', 'valueVi']},
                             {model: db.Allcode, as: 'paymentData', attributes: ['valueEn', 'valueVi']},
@@ -244,11 +242,12 @@ let getDoctorClinic = (doctorId) => {
         try {
             let data = await db.Doctor_Infor.findOne({
                 where: {doctorId: doctorId},
-                attributes: {exclude: ['id', 'createdAt', 'updatedAt']},
+                attributes: ['id'],
                 include: [
                     {model: db.Allcode, as: 'priceData', attributes: ['valueEn', 'valueVi']},
                     {model: db.Allcode, as: 'paymentData', attributes: ['valueEn', 'valueVi']},
                     {model: db.Allcode, as: 'provinceData', attributes: ['valueEn', 'valueVi']},
+                    {model: db.Clinic, attributes: ['name', 'address']},
                 ],
                 // nest: true,
                 raw: false
@@ -287,11 +286,11 @@ let getDoctorProfile = (doctorId) => {
                         {model: db.Markdown, attributes: ['description']},
                         {model: db.Allcode, as: 'positionData', attributes: ['valueEn', 'valueVi']},
                         {   model: db.Doctor_Infor, 
-                            attributes: ['nameClinic', 'addressClinic'],
                             include: [
                                 {model: db.Allcode, as: 'priceData', attributes: ['valueEn', 'valueVi']},
                                 {model: db.Allcode, as: 'paymentData', attributes: ['valueEn', 'valueVi']},
                                 {model: db.Allcode, as: 'provinceData', attributes: ['valueEn', 'valueVi']},
+                                {model: db.Clinic, attributes: ['name', 'address']},
                             ]
                         },
                     ],

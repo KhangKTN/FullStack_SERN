@@ -78,9 +78,9 @@ class DoctorSchedule extends Component {
         let options = this.state.allDays;
         let {listTime, doctorId} = this.state;
         let language = this.props.language;
-        // console.log('check doctorId from DoctorSchedule:', doctorId);
-        console.clear();
-        console.log('check state:', this.state);
+        console.log('check doctorId from DoctorSchedule:', doctorId);
+        // console.clear();
+        // console.log('check state:', this.state);
         return(
             <div className='doctor-schedule-container'>
                 <div className='schedule-date col-sm-12 col-md-10 col-lg-4'>

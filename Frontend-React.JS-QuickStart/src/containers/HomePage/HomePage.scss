@@ -60,9 +60,10 @@
 
                 .img{
                     &.img-specialty{
-                        background: url('../../assets/specialty/than-kinh.jpeg') no-repeat center;
                         background-size: cover;
-                        background-color: #fff
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        border-radius: 5px;
                     }
     
                     &.img-medical-faccility{
@@ -102,15 +103,18 @@
 
 .section-about{
     background-color: #f5f5f5;
-    padding: 20px 40px;
+    padding: 20px 50px;
     margin-bottom: 50px; 
     text-align: center;
+    background: url('../../assets/truyen-thong/bg-truyenthong.png');
 
     .section-content{
         display: flex;
+        column-gap: 18px;
         padding: 20px 0;
 
         .section-about-left{
+            flex-shrink: 0;
             .iframe{
                 border-radius: 20px;
         
@@ -120,28 +124,90 @@
             }
         }
 
-        a{
-            width: 250px;
-            height: 50px;
-            margin-left: 20px;
+        .section-about-right{
+            width: 50%;
+            display: grid;
+            grid-template-columns: auto auto;
+            align-items: center;
+            gap: 18px;
             
-            .img-about{
-                background: url('https://bookingcare.vn/assets/truyenthong/vnexpress.png') no-repeat;
-                width: 250px;
-                height: 50px;
-                background-size: cover;
-                background-color: #eef7f2;
+            a{
+                // width: 250px;
+                height: 70px;
+                margin-bottom: 0;
+                // margin-left: 20px;
+    
+                .test{
+                    background: url('../../assets/truyen-thong/vnexpress.png') no-repeat center;
+                    height: 100%;
+                    width: 100%;
+                    background-color: white;
+                    border-radius: 10px;
+                }
+    
+                .img-about{
+                    // background: url('https://bookingcare.vn/assets/truyenthong/vnexpress.png') no-repeat;
+                    width: 100%;
+                    height: 100px;
+                    // src: url('../../assets/truyen-thong/vnexpress.png');
+                    // src: url();
+                    // background-size: cover;
+                    // background-color: #86c0a0;
+                }
             }
         }
+
+        
     }
 }
 
 .footer{
     width: 100%;
-    height: 200px;
-    background-image: linear-gradient(to bottom right, #4bf28e, #4c9ef0);
-    background-color: aqua;
-    padding: 20px 50px;
+    // height: 200px;
+    // background-image: linear-gradient(to bottom right, #4bf28e, #4c9ef0);
+    background-color: rgb(201, 246, 246);
+    padding: 20px 80px;
+
+    .footer-content{
+        display: flex;
+        column-gap: 10px;
+        justify-content: center;
+
+        .footer-address{
+            width: 40%;
+        }
+
+        .subline{
+            width: 20%;
+            // height: 4px;
+            border: 4px solid #49bce2;
+            margin: 16px 0;
+            border-radius: 0px 10px;
+        }
+
+        .footer-about{
+            width: 20%;
+        }
+
+        .footer-partner{
+            width: 40%;
+
+            .partner{
+                display: flex;
+                column-gap: 10px;
+                margin-bottom: 10px;
+            }
+        }
+
+    }
+
+    .footer-follow{
+        img{
+            width: 50px;
+            background-color: transparent;
+            // height: 40px;
+        }
+    }
 
     h5{
         margin: auto;

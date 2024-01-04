@@ -293,8 +293,8 @@ class UserRedux extends Component {
                                 <label className="form-label"><FormattedMessage id='manage-user.image'/></label>
                                 <div className='preview-img-container'>
                                     <input id='previewImg' type='file' hidden onChange={(event) => this.handleOnchangeImage(event)}/>
-                                    <label className='label-upload col-3' htmlFor='previewImg'>Tải Ảnh <i className='fas fa-upload'></i></label>
-                                    <div style={{backgroundImage: `url(${this.state.previewImgUrl})`}} className='col-8 preview-image'
+                                    <label className='label-upload col-3' htmlFor='previewImg'>Tải Ảnh<i className='fas fa-upload'></i></label>
+                                    <div style={{backgroundImage: `url(${this.state.previewImgUrl})`}} className='col-8 preview-image rounded-circle'
                                     onClick={() => this.openPreviewImage()}></div>
                                 </div>
                             </div>

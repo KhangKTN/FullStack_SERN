@@ -14,11 +14,13 @@ import Login from './Auth/Login';
 import System from '../routes/System';
 import HomePage from './HomePage/HomePage.js';
 import DetailDoctor from './Patient/Doctor/DetailDoctor';
+import SpecialtyDetail from './Patient/Specialty/SpecialtyDetail';
 import Doctor from '../routes/Doctor';
 
 import { CustomToastCloseButton } from '../components/CustomToast';
 import CustomScrollbars from '../components/CustomScrollbars';
 import VerifyEmail from './Patient/VerifyEmail';
+import ClinicDetail from './Patient/Clinic/ClinicDetail';
 
 class App extends Component {
     handlePersistorState = () => {
@@ -54,6 +56,8 @@ class App extends Component {
                                     <Route path={path.HOMEPAGE} component={HomePage} />
                                     <Route path={path.DETAIL_DOCTOR} component={DetailDoctor} />
                                     <Route path={path.VERIFY_EMAIL_BOOKING} component={VerifyEmail} />
+                                    <Route path={path.DETAIL_SPECIALTY} component={SpecialtyDetail} />
+                                    <Route path={path.DETAIL_CLINIC} component={ClinicDetail} />
                                 </Switch>
                             </CustomScrollbars>
                         </div>

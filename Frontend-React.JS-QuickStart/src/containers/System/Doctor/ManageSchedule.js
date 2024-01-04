@@ -102,7 +102,6 @@ class ManageSchedule extends Component {
                         let data = this.state.dataTime;
                         data.map(item => item.isSelected = false);
                         this.setState({
-                            doctors: [],
                             dataTime: data,
                             selectedDoctor: '',
                             currentDate: ''
@@ -122,10 +121,10 @@ class ManageSchedule extends Component {
         let timeArr = this.state.dataTime;
         return (
             <div className='manage-schedule-container'>
-                <div className='m-s-title'>
+                <div className='m-s-title my-5'>
                     <FormattedMessage id='manage-schedule.title'/>
                 </div>
-                <div className='m-s-content'>
+                <div className='m-s-content p-4'>
                     <div className='row'>
                         <div className='col-sm-12 col-md-6'>
                             <label className='mb-2'><FormattedMessage id='manage-schedule.choose-doctor'/></label>

@@ -74,7 +74,7 @@ class TableManageUser extends Component {
                                     <td>{item.phoneNumber}</td>
                                     <td>
                                         <button onClick={() => this.handleEditUser(item)} className='button'><i className="fas fa-edit"></i></button>
-                                        <button className='button del' onClick={() => this.handleDeleteUser(item.id)}><i className="fas fa-trash-alt"></i></button>
+                                        <button className='button del ms-2' onClick={() => this.handleDeleteUser(item.id)}><i className="fas fa-trash-alt"></i></button>
                                     </td>
                                 </tr>
                             )
@@ -83,7 +83,7 @@ class TableManageUser extends Component {
                     </tbody>
                 </table>
             </div>
-            <MdEditor style={{ height: '500px' }} renderHTML={text => mdParser.render(text)} onChange={handleEditorChange} />
+            {/* <MdEditor style={{ height: '500px' }} renderHTML={text => mdParser.render(text)} onChange={handleEditorChange} /> */}
             </Fragment>
         );
     }

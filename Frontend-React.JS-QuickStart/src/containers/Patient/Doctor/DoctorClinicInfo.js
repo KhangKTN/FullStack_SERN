@@ -52,27 +52,26 @@ class DoctorClinicInfo extends Component {
         let {doctorClinic} = this.state;
         let {language} = this.props;
         // console.clear();
-        // console.log('check state:', this.state);
+        console.log('check state:', this.state);
         let price = '', currency = '';
         if(doctorClinic.priceData){
-            price = language === LANGUAGES.VI ? doctorClinic.priceData.valueVi :  doctorClinic.priceData.valueEn;
-            currency = language === LANGUAGES.VI ? ' đ' : ' $';
+            price = language === LANGUAGES.VI ? new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(doctorClinic.priceData.valueVi)
+            : new Intl.NumberFormat('en-US', { style: 'currency', currency: 'EUR' }).format(doctorClinic.priceData.valueEn);
         }
         return(
-            <div className='doctor-clinic-infor-container px-4 border-start border-2 border-secondary'>
+            <div className='doctor-clinic-infor-container'>
                 <div className='clinic-address text-sm-center text-md-start'>
                     <h4 className='text-secondary fw-bold text-uppercase fs-5'><FormattedMessage id='patient.doctor-clinic.address-clinic'/>:</h4>
-                    <h5 className='fw-bold'>{doctorClinic.nameClinic}</h5>
-                    <h5>{doctorClinic.addressClinic}</h5>
+                    <h5 className='fw-bold'>{doctorClinic ? doctorClinic.Clinic.name : ''}</h5>
+                    <h5>{doctorClinic ? doctorClinic.Clinic.address : ''}</h5>
                 </div>
                 <div className='devide-line mx-sm-auto mx-md-0'></div>
                 <div className='clinic-payment'>
-                    <h4 className='text-secondary fw-bold text-uppercase fs-5'><FormattedMessage id='patient.doctor-clinic.price'/>: <span className='badge bg-warning text-dark fs-5'><CurrencyFormat value={price} displayType={'text'} thousandSeparator={true} suffix={currency}/></span></h4>
+                    <h4 className='text-secondary fw-bold text-uppercase fs-5'><FormattedMessage id='patient.doctor-clinic.price'/>: <span className='badge bg-warning text-dark fs-5'>{price}</span></h4>
                     <a className='fs-5' onClick={() => this.handelShowHide()}>{this.state.isShow ? <FormattedMessage id='patient.doctor-clinic.hide-detail'/> : <FormattedMessage id='patient.doctor-clinic.show-detail'/>}</a>
                 </div>
                 <div className='fst-italic fw-normal fs-6 text-secondary p-3' hidden={this.state.isShow ? false : true}>
                     <div className=''>{doctorClinic.note ? doctorClinic.note : ''}</div>
-                    <div className=''>Bệnh nhân có thể thanh toán viện phí bằng {doctorClinic.paymentData ? doctorClinic.paymentData.valueVi : ''}</div>
                 </div>
             </div>
         ) 

@@ -1,6 +1,7 @@
 import actionTypes from "./actionTypes";
 import { getAllCodeService, createNewUserService, getAllUser, 
-    deleteUserService, editUserService, getTopDoctorService, getAllDoctorsService, saveInfoDoctor } from "../../services/userService";
+    deleteUserService, editUserService, getTopDoctorService, 
+    getAllDoctorsService, saveInfoDoctor, getAllSpecialty, getAllClinic } from "../../services/userService";
 import { toast } from "react-toastify";
 
 // export const fetchGenderStart = () => ({
@@ -301,12 +302,16 @@ export const fetchAllRequiredDoctorStart = () => {
             let prices = await getAllCodeService("PRICE");
             let payments = await getAllCodeService("PAYMENT");
             let provinces = await getAllCodeService("PROVINCE");
+            let specialties = await getAllSpecialty();
+            let clinics = await getAllClinic();
             let data = {
                 prices: prices.data, 
                 payments: payments.data, 
-                provinces: provinces.data
+                provinces: provinces.data,
+                specialties: specialties.data,
+                clinics: clinics.data
             }
-            console.log('check data:', data);
+            // console.log('check data:', data);
             if(prices && prices.errCode === 0 && payments && payments.errCode === 0 && provinces && provinces.errCode === 0){
                 dispatch({
                     type: actionTypes.FETCH_REQUIRED_DOCTOR_SUCCESS,
