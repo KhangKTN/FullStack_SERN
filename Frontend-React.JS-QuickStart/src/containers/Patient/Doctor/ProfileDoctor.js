@@ -16,7 +16,7 @@ class ProfileDoctor extends Component {
 
     async componentDidMount(){
         let doctorId = this.props.doctorId;
-        console.log('run did mount:', this.props.doctorId);
+        // console.log('run did mount:', this.props.doctorId);
         this.setProfileDoctor(doctorId);
     }
 

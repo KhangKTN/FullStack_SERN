@@ -28,6 +28,11 @@ class DoctorSchedule extends Component {
         if(allDays && allDays.length > 0){
             this.setState({allDays});
         }
+        if(this.props.doctorId){
+            let doctorId = this.props.doctorId;
+            let res = await getScheduleDoctor(doctorId, allDays[0].value);
+            this.setState({doctorId, listTime: res.data})
+        }
     }
 
     async componentDidUpdate(prevProps, prevState){
@@ -78,12 +83,9 @@ class DoctorSchedule extends Component {
         let options = this.state.allDays;
         let {listTime, doctorId} = this.state;
         let language = this.props.language;
-        console.log('check doctorId from DoctorSchedule:', doctorId);
-        // console.clear();
-        // console.log('check state:', this.state);
         return(
             <div className='doctor-schedule-container'>
-                <div className='schedule-date col-sm-12 col-md-10 col-lg-4'>
+                <div className='schedule-date col-sm-12 col-md-10 col-lg-6'>
                     <select className='form-select text-secondary fw-bold' onChange={(event) => this.handleOnChange(event)}>
                         {options && options.length > 0 && options.map((item, index) => {
                             return <option value={item.value} key={item.value}>{item.label}</option>

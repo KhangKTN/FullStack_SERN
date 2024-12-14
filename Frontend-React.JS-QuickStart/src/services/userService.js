@@ -91,10 +91,18 @@ const getClinicById = (id) => {
     return axios.get(`/api/get-clinic-by-id?id=${id}`);
 }
 
+const getPatientBooking = (doctorId, date) => {
+    return axios.get(`/api/get-patient-booking?doctorId=${doctorId}&date=${date}`);
+}
+
+const sendPrescription = (data) => {
+    return axios.post(`/api/send-prescription`, data);
+}
+
 export {
     handleLoginApi, getAllUser, createNewUserService, deleteUserService, 
     editUserService, getAllCodeService, getTopDoctorService, getAllDoctorsService, saveInfoDoctor,
     getDetailInfoDoctor, saveBulkScheduleDoctor, getScheduleDoctor, getDoctorClinic, getDoctorProfile,
     patientBooking, verifyBooking, createNewSpecialty, getAllSpecialty, getSpecialtyById,
-    createNewClinic, getAllClinic, getClinicById
+    createNewClinic, getAllClinic, getClinicById, getPatientBooking, sendPrescription
 };

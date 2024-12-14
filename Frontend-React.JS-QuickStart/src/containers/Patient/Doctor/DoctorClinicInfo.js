@@ -5,7 +5,6 @@ import HomeHeader from '../../HomePage/HomeHeader';
 import { LANGUAGES } from '../../../utils';
 import {getDoctorClinic} from '../../../services/userService'
 import {FormattedMessage} from 'react-intl';
-import CurrencyFormat from 'react-currency-format';
 import './DoctorClinicInfo.scss'
 
 class DoctorClinicInfo extends Component {
@@ -27,14 +26,12 @@ class DoctorClinicInfo extends Component {
         if(prevProps.language !== this.props.language){
         }
         if(this.props.doctorId !== prevProps.doctorId){
-            console.log('load didUpdate');
             this.loadDoctorClinic();
         }
     }
 
-     loadDoctorClinic = async() => {
+    loadDoctorClinic = async() => {
         let doctorClinic = await getDoctorClinic(this.props.doctorId);
-        // console.log('check doctorClinic: ', doctorClinic);
         if(doctorClinic && doctorClinic.errCode === 0){
             this.setState({doctorClinic: doctorClinic.data})
         }

@@ -21,6 +21,9 @@ export const adminMenu = [
             { //quản lý Lịch khám
                 name: 'menu.doctor.manage-schedule', link: '/doctor/manage-schedule'
             },
+            { //quản lý Lịch khám
+                name: 'menu.doctor.manage-patient-booking', link: '/doctor/manage-patient-booking'
+            },
         ]
     },
     { //quản lý phòng khám
@@ -49,6 +52,9 @@ export const doctorMenu = [
         menus: [
             { //quản lý Lịch khám
                 name: 'menu.doctor.manage-schedule', link: '/doctor/manage-schedule'
+            },
+            { //quản lý Lịch khám
+                name: 'menu.doctor.manage-patient-booking', link: '/doctor/manage-patient-booking'
             },
         ]
     }

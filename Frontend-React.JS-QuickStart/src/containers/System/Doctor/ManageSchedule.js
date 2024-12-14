@@ -27,7 +27,6 @@ class ManageSchedule extends Component {
     componentDidMount(){
         this.props.getAllDoctorRedux();
         this.props.getAllTime();
-        console.log();
     }
 
     componentDidUpdate(prevProps, prevState){
@@ -67,8 +66,8 @@ class ManageSchedule extends Component {
     }
 
     handleOnChangeDatePicker = (date) => {
-        // console.log('check datepicker onchange:', value);
-        this.setState({currentDate: date[0]})
+        if(new Date(date).toDateString() == new Date().toDateString()) toast.error('Choose other day!');
+        else this.setState({currentDate: date[0]})
     }
 
     handleClickTime = timeSelected => {
@@ -81,9 +80,7 @@ class ManageSchedule extends Component {
         let {dataTime, selectedDoctor, currentDate} = this.state;
         if(!currentDate) toast.error("Invalid date !");
         else if(!selectedDoctor) toast.error("Please choose doctor!");
-        // else if(new Date(currentDate) < new Date(Date.now()).getTime()) toast.error("Please choose date from today!");
         else{
-            // let formattedDate = new Date(currentDate);
             if(dataTime && dataTime.length > 0){
                 let selectedTime = dataTime.filter(item => item.isSelected);
                 if(selectedTime && selectedTime.length > 0){
@@ -95,7 +92,6 @@ class ManageSchedule extends Component {
                         obj.timeType = item.keyMap;
                         result.push(obj);
                     })
-                    console.log('check result:', result);
                     let res = await saveBulkScheduleDoctor(result);
                     if(res && res.errCode === 0){
                         toast.success("Successfully saved schedule!");
@@ -117,7 +113,6 @@ class ManageSchedule extends Component {
     }
 
     render() {
-        console.log('check state render:', this.state);
         let timeArr = this.state.dataTime;
         return (
             <div className='manage-schedule-container'>
@@ -128,7 +123,6 @@ class ManageSchedule extends Component {
                     <div className='row'>
                         <div className='col-sm-12 col-md-6'>
                             <label className='mb-2'><FormattedMessage id='manage-schedule.choose-doctor'/></label>
-                            {/* <input className='form-control'/> */}
                             <Select
                                 value={this.state.selectedDoctor}
                                 onChange={this.handleChange}
@@ -138,7 +132,7 @@ class ManageSchedule extends Component {
                         <div className='col-sm-12 col-md-6'>
                             <label className='mb-2'><FormattedMessage id='manage-schedule.choose-date'/></label>
                             {/* <input type='' className='form-control'/> */}
-                            <DataPicker className='form-control' minDate={new Date().getTime() - 86400000} value={this.state.currentDate} onChange={this.handleOnChangeDatePicker}/>
+                            <DataPicker className='form-control' minDate={new Date()} value={this.state.currentDate} onChange={this.handleOnChangeDatePicker}/>
                         </div>
                         <div className='col-12 choose-time row'>
                             {timeArr && timeArr.length > 0 && timeArr.map((item, index) => {

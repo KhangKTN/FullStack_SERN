@@ -1,6 +1,7 @@
 import { where } from "sequelize";
 import db from "../models/index";
 import _ from 'lodash'
+import emailService from "./emailService";
 require('dotenv').config();
 const MAX_NUMBER_SCHEDULE = 10;
 
@@ -310,7 +311,71 @@ let getDoctorProfile = (doctorId) => {
     })
 }
 
+let getPatientBooking = (data) => {
+    return new Promise(async(resolve, reject) => {
+        try {
+            if(!data || !data.doctorId || !data.date) {
+                resolve({
+                    errCode: 1,
+                    errMessage: 'Missing parameter required!'
+                })
+            }
+            else{
+                let listPatient = await db.Booking.findAll({
+                    where: {doctorId: data.doctorId, date: data.date, statusId: 'S2'},
+                    attributes: {exclude: ['token', 'createdAt', 'updatedAt']},
+                    include: [
+                        {model: db.User, attributes: ['firstName', 'lastName', 'phoneNumber', 'email']},
+                        {model: db.Allcode, attributes: ['valueVi', 'valueEn']}
+                    ],
+                    raw: false
+                })
+                resolve({
+                    errCode: 0,
+                    errMessage: 'Get information success!',
+                    listPatient
+                })
+            }
+            
+        } catch (error) {
+            console.log(error);
+            reject(error)
+        }
+    })
+}
+
+let sendPrescription = (data) => {
+    return new Promise(async(resolve, reject) => {
+        try {
+            if(!data || !data.id){
+                resolve({
+                    errCode: 1,
+                    errMessage: 'Missing required parameter!'
+                })
+            }else{
+                //Update status
+                let booking = await db.Booking.findOne({
+                    where: {id: data.id},
+                    raw: false
+                })
+                if(booking) await booking.update({statusId: 'S3'})
+
+                //Send email with attachment
+                console.log(data);
+                let res = await emailService.sendAttackment(data);
+                resolve({
+                    errCode: 0,
+                    errMessage: "Send prescription successfully!"
+                })
+            }
+        } catch (error) {
+            reject(error)
+        }
+    })
+}
+
 module.exports = {
     getTopDoctorHome, getAllDoctors, saveInfoDoctor, getDetailDoctorById, 
-    createSchedule, getScheduleDoctor, getDoctorClinic, getDoctorProfile
+    createSchedule, getScheduleDoctor, getDoctorClinic, getDoctorProfile, 
+    getPatientBooking, sendPrescription
 }

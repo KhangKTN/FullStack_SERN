@@ -24,7 +24,6 @@ const adminReducer = (state = initialState, action) => {
         case actionTypes.FETCH_GENDER_START: 
             let copyState = {...state};
             copyState.isLoadingGender = true;
-            console.log('fire fetch gender start:', copyState);
             return {
                 ...copyState,
             }
@@ -35,7 +34,6 @@ const adminReducer = (state = initialState, action) => {
                 ...state,
             }
         case actionTypes.FETCH_GENDER_FAILED: 
-            console.log('fire fetch gender failed:', action);
             state.isLoadingGender = false;
             state.genders = [];
             return {

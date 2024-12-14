@@ -37,8 +37,9 @@
             "manage-handbook": "Quản lý Cẩm nang"
         },
         "doctor": {
-            "manage-schedule": "Quản lý lịch khám bệnh",
-            "schedule": "Lịch khám bệnh"
+            "manage-schedule": "Quản lý lịch khám",
+            "schedule": "Lịch khám bệnh",
+            "manage-patient-booking": "Quản lý đặt lịch"
         }
     },
     "manage-user": {
@@ -66,6 +67,21 @@
         "choose-doctor": "Chọn bác sĩ",
         "choose-date": "Chọn ngày khám",
         "save": "Thêm lịch khám"
+    },
+    "manage-patient": {
+        "title": "Quản lý bệnh nhân đặt lịch",
+        "date": "Chọn ngày",
+        "list-patient": "Danh sách bệnh nhân",
+        "firstname": "Tên",
+        "lastname": "Họ đệm",
+        "phone": "Số điện thoại",
+        "time": "Thời gian",
+        "confirm": "Xác nhận đã khám",
+        "send-bill": "Gửi hoá đơn",
+        "sending-bill": "Đang gửi...",
+        "no-data": "Không có bệnh nhân khám trong ngày này!",
+        "modal-title": "Gửi hoá đơn khám bệnh",
+        "modal-file": "Chọn file đơn thuốc"
     },
     "patient":{
         "detail-doctor": {

@@ -67,7 +67,12 @@ let getSpecialtyById = (id, province) => {
             else{
                 let data = await db.Specialty.findOne({
                     attributes: {exclude: ['updatedAt', 'createdAt']},
-                    where: {id}
+                    // attributes: ['name', 'id'],
+                    where: {id},
+                    // include: [
+                    //     {model: db.Doctor_Infor, attributes: ['doctorId']}
+                    // ],
+                    raw: false
                 });
                 let doctors = [];
                 if(province !== 0){
@@ -132,8 +137,7 @@ let getAllClinic = () => {
     return new Promise(async(resolve,reject)=>{
         try {
             let data = await db.Clinic.findAll({
-                // attributes: {exclude: ['']}
-                // includes: 
+                //
             });
             resolve({
                 errCode: 0,

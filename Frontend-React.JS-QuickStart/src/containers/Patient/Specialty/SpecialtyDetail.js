@@ -58,7 +58,6 @@ class SpecialtyDetail extends Component {
     render() {
         let {arrDoctors, specialty, provinces} = this.state;
         let {language} = this.props;
-        console.log('check state:', this.state);
         return (
             <>
                 <HomeHeader />
@@ -86,8 +85,8 @@ class SpecialtyDetail extends Component {
                                         <ProfileDoctor doctorId={item.doctorId}/>
                                     </div>
                                     <div className='schedule-info'>
-                                        <DoctorSchedule doctorId={item}/>
-                                        <DoctorClinicInfo doctorId={item}/>
+                                        <DoctorSchedule doctorId={item.doctorId}/>
+                                        <DoctorClinicInfo doctorId={item.doctorId}/>
                                     </div>
                                 </div>
                             )})

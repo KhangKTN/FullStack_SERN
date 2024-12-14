@@ -52,4 +52,55 @@ let sendEmail = async(receiverData) => {
     })
 }
 
-module.exports = sendEmail
+let sendAttackment = (receiverData) => {
+    return new Promise(async(resolve, reject) => {
+        try {
+            let transporter = nodemailer.createTransport({
+                host: 'smtp.gmail.com',
+                port: 587,
+                secure: false,
+                auth: {
+                    user: process.env.EMAIL_ACC,
+                    pass: process.env.EMAIL_PASS
+                }
+            })
+        
+            let info = await transporter.sendMail({
+                from: 'Khang KTN',
+                // to: 'lvhoang.96.tcv@gmail.com',
+                to: 'pdinhkhang92tcv@gmail.com',
+                subject: 'THÔNG TIN HOÁ ĐƠN KHÁM BỆNH',
+                text: '',
+                attachments: [{
+                    filename: receiverData.imageName,
+                    content: receiverData.image.split('base64,')[1],
+                    encoding: 'base64'
+                }],
+                html: 
+                `
+                <div style="font-size: 16px">
+                    <h4>Xin chào ${receiverData.patientName},</h4>
+                    <h4>Cảm ơn bạn đã khám bệnh tại website Bookingcare.vn</h4>
+                    <h4>Thông tin khám bệnh:</h4>
+                    <ul>
+                        <li>Bác sĩ: ${receiverData.doctorName}</li>
+                        <li>Ngày khám: ${receiverData.time} (${receiverData.date})</li>
+                    </ul>
+                    <h4>Thông tin đơn thuốc trong ảnh bên dưới:</h4>
+                    <p>Chúc bạn ngày mới tốt lành.</p>
+                </div>
+                `
+            })
+            resolve({
+                errorCode: 0,
+                message: 'Send email success!'
+            })
+        } catch (error) {
+            reject(error)
+        }
+    })
+    
+
+}
+
+module.exports = {sendEmail, sendAttackment}

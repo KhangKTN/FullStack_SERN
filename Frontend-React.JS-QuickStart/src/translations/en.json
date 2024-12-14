@@ -37,7 +37,9 @@
             "manage-handbook": "Manage Handbook"
         },
         "doctor": {
-            "manage-schedule": "Manage Doctor's Schedule"
+            "manage-schedule": "Manage Doctor's Schedule",
+            "schedule": "Schedule Booking",
+            "manage-patient-booking": "Manage Patient Booking"
         }
     },
     "manage-user": {
@@ -65,6 +67,18 @@
         "choose-doctor": "Choose doctor",
         "choose-date": "Choose an examination date",
         "save": "Add schedule"
+    },
+    "manage-patient": {
+        "title": "Manage patient booking",
+        "date": "Choose date",
+        "list-patient": "List patient",
+        "firstname": "First name",
+        "lastname": "Last name",
+        "phone": "Phone",
+        "time": "Time",
+        "confirm": "Confirm",
+        "send-bill": "Send bill",
+        "no-data": "There are no patients scheduled for this day!"
     },
     "patient":{
         "detail-doctor": {
